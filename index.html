@@ -18,13 +18,18 @@
       --border: #dbe5ef;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       color: var(--text);
       background: linear-gradient(
-        145deg, #e6f0fc 0%, #f8fbff 42%, #eaf3ff 100%
+        145deg,
+        #e6f0fc 0%,
+        #f8fbff 42%,
+        #eaf3ff 100%
       );
       font-family: Arial, Helvetica, sans-serif;
       min-height: 100vh;
@@ -36,6 +41,8 @@
       padding: 20px;
     }
 
+    /* DISTRICT HEADER */
+
     .intro {
       text-align: center;
       padding: 44px 20px 35px;
@@ -45,7 +52,12 @@
           rgba(157, 198, 247, .34),
           transparent 55%
         ),
-        linear-gradient(120deg, #f2f8ff, #ffffff, #e7f1ff);
+        linear-gradient(
+          120deg,
+          #f2f8ff,
+          #ffffff,
+          #e7f1ff
+        );
       border: 1px solid var(--border);
       border-radius: 20px;
       margin-bottom: 20px;
@@ -83,13 +95,61 @@
       font-weight: 600;
     }
 
+    /* MEETING UPDATE SECTION */
+
+    .update-panel {
+      margin-bottom: 20px;
+      padding: 24px 22px;
+      text-align: center;
+      border-radius: 18px;
+      background: #f1f6fd;
+      border: 1px solid var(--border);
+    }
+
+    .update-panel h2 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 0 0 10px;
+    }
+
+    .update-panel p {
+      max-width: 650px;
+      margin: 0 auto 18px;
+      line-height: 1.6;
+      color: #526477;
+      font-size: 15px;
+    }
+
+    .update-button {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: background .2s ease;
+    }
+
+    .update-button:hover,
+    .update-button:focus-visible {
+      background: #306aa5;
+      color: white;
+    }
+
+    /* SCROLLABLE MEETING GUIDE */
+
     .meetings-panel {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 22px;
-      overflow: hidden;
       box-shadow: 0 7px 25px rgba(20, 55, 95, .05);
+
+      height: 650px;
+      overflow-y: auto;
+      overflow-x: auto;
+      overscroll-behavior: contain;
     }
 
     #tsml-ui {
@@ -111,44 +171,7 @@
       border-radius: 7px;
     }
 
-    .update-panel {
-      margin-top: 22px;
-      padding: 30px 22px;
-      text-align: center;
-      border-radius: 18px;
-      background: #f1f6fd;
-      border: 1px solid var(--border);
-    }
-
-    .update-panel h2 {
-      color: var(--navy);
-      font-size: 23px;
-      margin: 0 0 12px;
-    }
-
-    .update-panel p {
-      max-width: 650px;
-      margin: 0 auto 22px;
-      line-height: 1.6;
-      color: #526477;
-    }
-
-    .update-button {
-      display: inline-block;
-      background: var(--navy);
-      color: white;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 9px;
-      font-weight: 700;
-      transition: background .2s ease;
-    }
-
-    .update-button:hover,
-    .update-button:focus-visible {
-      background: #306aa5;
-      color: white;
-    }
+    /* FOOTER */
 
     footer {
       padding: 26px 10px;
@@ -161,6 +184,8 @@
       color: var(--blue);
     }
 
+    /* MOBILE DEVICES */
+
     @media (max-width: 700px) {
       .page {
         padding: 10px;
@@ -171,19 +196,30 @@
         border-radius: 13px;
       }
 
-      .meetings-panel {
-        padding: 12px;
-        border-radius: 12px;
-        overflow-x: auto;
-      }
-
       .timezone {
         font-size: 12px;
         line-height: 1.5;
       }
 
       .update-panel {
-        padding: 24px 15px;
+        padding: 22px 15px;
+        border-radius: 12px;
+      }
+
+      .update-panel h2 {
+        font-size: 20px;
+      }
+
+      .update-button {
+        max-width: 100%;
+      }
+
+      .meetings-panel {
+        height: 600px;
+        padding: 12px;
+        border-radius: 12px;
+        overflow-y: auto;
+        overflow-x: auto;
       }
     }
   </style>
@@ -193,7 +229,10 @@
 
 <main class="page">
 
+  <!-- DISTRICT HEADER -->
+
   <header class="intro">
+
     <div class="eyebrow">
       Western Washington &bull; Area 72
     </div>
@@ -206,26 +245,19 @@
       &#128339; All meeting times are displayed
       in Pacific Time (PT)
     </div>
+
   </header>
 
-  <section class="meetings-panel"
-           aria-label="Search online meetings">
 
-    <div
-      id="tsml-ui"
-      data-src="https://docs.google.com/spreadsheets/d/12PLbLuD88yY0CuMyjCOu56uNOBr-DyRd8630ses5PJQ/edit"
-      data-google="AIzaSyCEpwjS_7VzVEeUM0k6xEtioJTuYUk7x6A"
-      data-timezone="America/Los_Angeles">
-    </div>
-
-  </section>
+  <!-- MEETING UPDATE BUTTON -->
 
   <section class="update-panel">
-    <h2>Submit a Meeting Update</h2>
+
+    <h2>Need to Update a Meeting?</h2>
 
     <p>
-      Need to add a meeting or report a change to an
-      existing listing? Help us keep the District 25
+      Add a new meeting or report a change to an
+      existing listing. Help us keep the District 25
       meeting guide accurate and up to date.
     </p>
 
@@ -236,28 +268,60 @@
       rel="noopener noreferrer">
       Submit a Meeting Update &#8599;
     </a>
+
   </section>
 
+
+  <!-- SCROLLABLE MEETING GUIDE -->
+
+  <section
+    class="meetings-panel"
+    aria-label="Search online meetings"
+    tabindex="0">
+
+    <div
+      id="tsml-ui"
+      data-src="https://docs.google.com/spreadsheets/d/12PLbLuD88yY0CuMyjCOu56uNOBr-DyRd8630ses5PJQ/edit"
+      data-google="AIzaSyCEpwjS_7VzVEeUM0k6xEtioJTuYUk7x6A"
+      data-timezone="America/Los_Angeles">
+    </div>
+
+  </section>
+
+
+  <!-- DISTRICT FOOTER -->
+
   <footer>
-    Online District 25 &bull; Western Washington Area 72
+
+    Online District 25
+    &bull;
+    Western Washington Area 72
+
     <p>
-      <a href="https://www.onlinedistrict25aa.org"
-         target="_blank"
-         rel="noopener noreferrer">
+      <a
+        href="https://www.onlinedistrict25aa.org"
+        target="_blank"
+        rel="noopener noreferrer">
         Return to the District 25 Website
       </a>
     </p>
+
   </footer>
 
 </main>
+
+
+<!-- MEETING GUIDE SOFTWARE -->
 
 <script
   src="https://tsml-ui.code4recovery.org/app.js"
   async>
 </script>
 
+
+<!-- CHANGE MEETINGS HEADING -->
+
 <script>
-  // Rename the heading inserted by TSML UI.
   const guide = document.getElementById("tsml-ui");
 
   function updateMeetingHeading() {
@@ -268,7 +332,9 @@
     });
   }
 
-  const observer = new MutationObserver(updateMeetingHeading);
+  const observer = new MutationObserver(
+    updateMeetingHeading
+  );
 
   observer.observe(guide, {
     childList: true,
