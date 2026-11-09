@@ -1,18 +1,282 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>District 25 AA</title>
-  <link rel="stylesheet" href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Meetings | Online District 25</title>
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css">
+
+  <style>
+    :root {
+      --navy: #183b63;
+      --blue: #245b93;
+      --pale: #eef5fc;
+      --text: #243244;
+      --border: #dbe5ef;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: linear-gradient(
+        145deg, #e6f0fc 0%, #f8fbff 42%, #eaf3ff 100%
+      );
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1450px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 44px 20px 35px;
+      background:
+        radial-gradient(
+          ellipse at 20% 15%,
+          rgba(157, 198, 247, .34),
+          transparent 55%
+        ),
+        linear-gradient(120deg, #f2f8ff, #ffffff, #e7f1ff);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .intro h1 {
+      color: var(--navy);
+      font-size: clamp(29px, 4vw, 44px);
+      margin: 14px 0 6px;
+      line-height: 1.2;
+    }
+
+    .intro h2 {
+      font-size: clamp(19px, 2.5vw, 27px);
+      font-weight: 400;
+      margin: 0 0 22px;
+      color: #526b86;
+    }
+
+    .timezone {
+      display: inline-block;
+      background: #e2eefb;
+      border-radius: 30px;
+      padding: 11px 20px;
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .meetings-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      overflow: hidden;
+      box-shadow: 0 7px 25px rgba(20, 55, 95, .05);
+    }
+
+    #tsml-ui {
+      width: 100%;
+    }
+
+    #tsml-ui h1,
+    #tsml-ui h2 {
+      color: var(--navy);
+    }
+
+    #tsml-ui a {
+      color: #175fa7;
+    }
+
+    #tsml-ui input,
+    #tsml-ui select,
+    #tsml-ui button {
+      border-radius: 7px;
+    }
+
+    .update-panel {
+      margin-top: 22px;
+      padding: 30px 22px;
+      text-align: center;
+      border-radius: 18px;
+      background: #f1f6fd;
+      border: 1px solid var(--border);
+    }
+
+    .update-panel h2 {
+      color: var(--navy);
+      font-size: 23px;
+      margin: 0 0 12px;
+    }
+
+    .update-panel p {
+      max-width: 650px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+      color: #526477;
+    }
+
+    .update-button {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: background .2s ease;
+    }
+
+    .update-button:hover,
+    .update-button:focus-visible {
+      background: #306aa5;
+      color: white;
+    }
+
+    footer {
+      padding: 26px 10px;
+      text-align: center;
+      color: #62758a;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--blue);
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 10px;
+      }
+
+      .intro {
+        padding: 28px 15px;
+        border-radius: 13px;
+      }
+
+      .meetings-panel {
+        padding: 12px;
+        border-radius: 12px;
+        overflow-x: auto;
+      }
+
+      .timezone {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .update-panel {
+        padding: 24px 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div
-  id="tsml-ui"
-  data-src="https://docs.google.com/spreadsheets/d/12PLbLuD88yY0CuMyjCOu56uNOBr-DyRd8630ses5PJQ/edit"
-  data-google="AIzaSyCEpwjS_7VzVEeUM0k6xEtioJTuYUk7x6A"  data-timezone="America/Los_Angeles"
-></div>
-<script src="https://tsml-ui.code4recovery.org/app.js" async></script>
-  
-  
+
+<main class="page">
+
+  <header class="intro">
+    <div class="eyebrow">
+      Western Washington &bull; Area 72
+    </div>
+
+    <h1>Online District 25</h1>
+
+    <h2>Find an Online Meeting</h2>
+
+    <div class="timezone">
+      &#128339; All meeting times are displayed
+      in Pacific Time (PT)
+    </div>
+  </header>
+
+  <section class="meetings-panel"
+           aria-label="Search online meetings">
+
+    <div
+      id="tsml-ui"
+      data-src="https://docs.google.com/spreadsheets/d/12PLbLuD88yY0CuMyjCOu56uNOBr-DyRd8630ses5PJQ/edit"
+      data-google="YOUR_CURRENT_DISTRICT_API_KEY"
+      data-timezone="America/Los_Angeles">
+    </div>
+
+  </section>
+
+  <section class="update-panel">
+    <h2>Submit a Meeting Update</h2>
+
+    <p>
+      Need to add a meeting or report a change to an
+      existing listing? Help us keep the District 25
+      meeting guide accurate and up to date.
+    </p>
+
+    <a
+      class="update-button"
+      href="https://forms.gle/EZh3ZndVguuyuKxa6"
+      target="_blank"
+      rel="noopener noreferrer">
+      Submit a Meeting Update &#8599;
+    </a>
+  </section>
+
+  <footer>
+    Online District 25 &bull; Western Washington Area 72
+    <p>
+      <a href="https://www.onlinedistrict25aa.org"
+         target="_blank"
+         rel="noopener noreferrer">
+        Return to the District 25 Website
+      </a>
+    </p>
+  </footer>
+
+</main>
+
+<script
+  src="https://tsml-ui.code4recovery.org/app.js"
+  async>
+</script>
+
+<script>
+  // Rename the heading inserted by TSML UI.
+  const guide = document.getElementById("tsml-ui");
+
+  function updateMeetingHeading() {
+    guide.querySelectorAll("h1, h2").forEach(heading => {
+      if (heading.textContent.trim() === "Meetings") {
+        heading.textContent = "Online Meetings";
+      }
+    });
+  }
+
+  const observer = new MutationObserver(updateMeetingHeading);
+
+  observer.observe(guide, {
+    childList: true,
+    subtree: true
+  });
+
+  updateMeetingHeading();
+</script>
+
 </body>
 </html>
