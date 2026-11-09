@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Online Meetings | Online District 25</title>
+
+  <title>Find an Online Meeting | Online District 25</title>
 
   <link rel="stylesheet"
         href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css">
@@ -13,7 +14,7 @@
     :root {
       --navy: #183b63;
       --blue: #245b93;
-      --pale: #eef5fc;
+      --light: #edf4fc;
       --text: #243244;
       --border: #dbe5ef;
     }
@@ -22,49 +23,41 @@
       box-sizing: border-box;
     }
 
-    html {
+    html, body {
       margin: 0;
       padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: linear-gradient(
-        145deg,
-        #e6f0fc 0%,
-        #f8fbff 42%,
+        135deg,
+        #eaf2fd 0%,
+        #f9fbff 55%,
         #eaf3ff 100%
       );
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     .page {
       max-width: 1450px;
       margin: 0 auto;
-      padding: 16px 16px 0;
+      padding: 14px 16px 0;
     }
 
-    /* DISTRICT HEADER */
+    /* COMPACT DISTRICT HEADER */
 
     .intro {
       text-align: center;
-      padding: 32px 18px 28px;
-      background:
-        radial-gradient(
-          ellipse at 20% 15%,
-          rgba(157, 198, 247, .34),
-          transparent 55%
-        ),
-        linear-gradient(
-          120deg,
-          #f2f8ff,
-          #ffffff,
-          #e7f1ff
-        );
+      padding: 26px 16px 24px;
+      background: linear-gradient(
+        115deg,
+        #e4effe,
+        #ffffff 55%,
+        #e9f2ff
+      );
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 16px;
       margin-bottom: 14px;
     }
 
@@ -72,67 +65,66 @@
       color: var(--blue);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
     }
 
     .intro h1 {
       color: var(--navy);
-      font-size: clamp(29px, 4vw, 44px);
-      margin: 12px 0 5px;
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0 16px;
       line-height: 1.2;
-    }
-
-    .intro h2 {
-      font-size: clamp(19px, 2.5vw, 27px);
-      font-weight: 400;
-      margin: 0 0 17px;
-      color: #526b86;
     }
 
     .timezone {
       display: inline-block;
-      background: #e2eefb;
-      border-radius: 30px;
-      padding: 10px 18px;
-      font-size: 14px;
+      background: #dfeefa;
       color: var(--navy);
+      border-radius: 30px;
+      padding: 9px 17px;
+      font-size: 13px;
       font-weight: 600;
+      line-height: 1.5;
     }
 
-    /* MEETING UPDATE SECTION */
+    /* MEETING UPDATE */
 
     .update-panel {
-      margin: 0 0 14px;
-      padding: 20px 18px;
-      text-align: center;
-      border-radius: 16px;
-      background: #f1f6fd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
       border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f2f7fd;
     }
 
-    .update-panel h2 {
+    .update-copy h2 {
       color: var(--navy);
-      font-size: 21px;
-      margin: 0 0 8px;
+      font-size: 19px;
+      margin: 0 0 6px;
     }
 
-    .update-panel p {
-      max-width: 650px;
-      margin: 0 auto 14px;
-      line-height: 1.5;
+    .update-copy p {
+      margin: 0;
       color: #526477;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .update-button {
       display: inline-block;
+      flex-shrink: 0;
+      padding: 12px 20px;
+      border-radius: 8px;
       background: var(--navy);
       color: #ffffff;
       text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 9px;
       font-weight: 700;
+      font-size: 14px;
+      text-align: center;
       transition: background .2s ease;
     }
 
@@ -142,14 +134,15 @@
       color: #ffffff;
     }
 
-    /* SCROLLABLE MEETING GUIDE */
+    /* MEETING LIST */
 
     .meetings-panel {
       background: #ffffff;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 15px;
       padding: 18px;
-      box-shadow: 0 7px 25px rgba(20, 55, 95, .05);
+      box-shadow: 0 6px 22px rgba(20, 55, 95, .05);
+
       height: 650px;
       overflow-y: auto;
       overflow-x: auto;
@@ -178,12 +171,11 @@
     /* COMPACT FOOTER */
 
     footer {
-      padding: 10px 8px 8px;
-      margin: 0;
       text-align: center;
+      padding: 11px 8px 8px;
       color: #62758a;
-      font-size: 13px;
-      line-height: 1.4;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     footer p {
@@ -194,7 +186,7 @@
       color: var(--blue);
     }
 
-    /* MOBILE DEVICES */
+    /* MOBILE */
 
     @media (max-width: 700px) {
       .page {
@@ -202,38 +194,32 @@
       }
 
       .intro {
-        padding: 24px 14px;
-        border-radius: 13px;
-        margin-bottom: 12px;
+        padding: 23px 12px;
+      }
+
+      .intro h1 {
+        font-size: 29px;
       }
 
       .timezone {
         font-size: 12px;
-        line-height: 1.5;
       }
 
       .update-panel {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
         padding: 18px 14px;
-        border-radius: 12px;
-        margin-bottom: 12px;
-      }
-
-      .update-panel h2 {
-        font-size: 20px;
+        gap: 14px;
       }
 
       .update-button {
-        max-width: 100%;
+        width: 100%;
       }
 
       .meetings-panel {
         height: 600px;
         padding: 12px;
-        border-radius: 12px;
-      }
-
-      footer {
-        padding: 8px 4px 6px;
       }
     }
   </style>
@@ -246,7 +232,6 @@
   <!-- DISTRICT HEADER -->
 
   <header class="intro">
-
     <div class="eyebrow">
       Western Washington &bull; Area 72
     </div>
@@ -255,22 +240,21 @@
 
     <div class="timezone">
       &#128339; All meeting times are displayed
-      in Pacific Time (PT)
+      in Seattle, WA (Pacific Time)
     </div>
-
   </header>
 
-  <!-- MEETING UPDATE BUTTON -->
+  <!-- MEETING UPDATE -->
 
   <section class="update-panel">
 
-    <h2>Need to Update a Meeting?</h2>
-
-    <p>
-      Add a new meeting or report a change to an
-      existing listing. Help us keep the District 25
-      meeting guide accurate and up to date.
-    </p>
+    <div class="update-copy">
+      <h2>Need to Update a Meeting?</h2>
+      <p>
+        Add a meeting or report a change to an existing
+        listing. Help keep our meeting guide accurate.
+      </p>
+    </div>
 
     <a
       class="update-button"
@@ -282,11 +266,11 @@
 
   </section>
 
-  <!-- SCROLLABLE MEETING GUIDE -->
+  <!-- MEETING GUIDE -->
 
   <section
     class="meetings-panel"
-    aria-label="Search online meetings"
+    aria-label="Find an online meeting"
     tabindex="0">
 
     <div
@@ -298,11 +282,10 @@
 
   </section>
 
-  <!-- DISTRICT FOOTER -->
+  <!-- FOOTER -->
 
   <footer>
     Online District 25 &bull; Western Washington Area 72
-
     <p>
       <a
         href="https://www.onlinedistrict25aa.org"
@@ -315,22 +298,20 @@
 
 </main>
 
-<!-- MEETING GUIDE SOFTWARE -->
-
 <script
   src="https://tsml-ui.code4recovery.org/app.js"
   async>
 </script>
-
-<!-- CHANGE MEETINGS HEADING -->
 
 <script>
   const guide = document.getElementById("tsml-ui");
 
   function updateMeetingHeading() {
     guide.querySelectorAll("h1, h2").forEach(heading => {
-      if (heading.textContent.trim() === "Meetings") {
-        heading.textContent = "Online Meetings";
+      const text = heading.textContent.trim();
+
+      if (text === "Meetings" || text === "Online Meetings") {
+        heading.textContent = "Find an Online Meeting";
       }
     });
   }
