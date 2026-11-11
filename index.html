@@ -7,8 +7,10 @@
 
   <title>Find an Online Meeting | Online District 25</title>
 
-  <link rel="stylesheet"
-        href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css"
+  >
 
   <style>
     :root {
@@ -16,6 +18,7 @@
       --blue: #245b93;
       --light: #edf4fc;
       --text: #243244;
+      --muted: #526477;
       --border: #dbe5ef;
     }
 
@@ -23,7 +26,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
     }
@@ -45,11 +49,11 @@
       padding: 14px 16px 0;
     }
 
-    /* COMPACT DISTRICT HEADER */
+    /* DISTRICT HEADER */
 
     .intro {
       text-align: center;
-      padding: 26px 16px 24px;
+      padding: 27px 16px 25px;
       background: linear-gradient(
         115deg,
         #e4effe,
@@ -69,11 +73,23 @@
       text-transform: uppercase;
     }
 
+    /* DISTRICT LOGO */
+
+    .district-logo {
+      display: block;
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin: 25px auto 15px;
+    }
+
     .intro h1 {
       color: var(--navy);
       font-size: clamp(28px, 4vw, 40px);
-      margin: 10px 0 16px;
+      margin: 0 0 17px;
       line-height: 1.2;
+      letter-spacing: -0.5px;
     }
 
     .timezone {
@@ -87,7 +103,7 @@
       line-height: 1.5;
     }
 
-    /* MEETING UPDATE */
+    /* MEETING UPDATE PANEL */
 
     .update-panel {
       display: flex;
@@ -109,7 +125,7 @@
 
     .update-copy p {
       margin: 0;
-      color: #526477;
+      color: var(--muted);
       font-size: 14px;
       line-height: 1.5;
     }
@@ -134,7 +150,7 @@
       color: #ffffff;
     }
 
-    /* MEETING LIST */
+    /* MEETING GUIDE */
 
     .meetings-panel {
       background: #ffffff;
@@ -168,18 +184,102 @@
       border-radius: 7px;
     }
 
-    /* COMPACT FOOTER */
+    /* ABOUT OUR DISTRICT LOGO */
+
+    .logo-about {
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(20, 55, 95, .035);
+    }
+
+    .logo-about summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 17px 21px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      background: #f2f7fd;
+      transition: background .2s ease;
+    }
+
+    .logo-about summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .logo-about summary:hover {
+      background: #e7f1fc;
+    }
+
+    .logo-about summary:focus-visible {
+      outline: 3px solid #79a8dc;
+      outline-offset: -3px;
+    }
+
+    .logo-about summary::after {
+      content: "+";
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--blue);
+    }
+
+    .logo-about[open] summary::after {
+      content: "−";
+    }
+
+    .logo-about-content {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding: 24px;
+    }
+
+    .logo-about-image {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .logo-about-text h2 {
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 0 0 9px;
+    }
+
+    .logo-about-text p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      margin: 0 0 11px;
+    }
+
+    .logo-about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FOOTER */
 
     footer {
       text-align: center;
-      padding: 11px 8px 8px;
+      padding: 16px 8px 12px;
       color: #62758a;
       font-size: 12px;
       line-height: 1.5;
     }
 
     footer p {
-      margin: 4px 0 0;
+      margin: 5px 0 0;
     }
 
     footer a {
@@ -195,6 +295,17 @@
 
       .intro {
         padding: 23px 12px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.2px;
+      }
+
+      .district-logo {
+        width: 82px;
+        height: 82px;
+        margin: 23px auto 14px;
       }
 
       .intro h1 {
@@ -221,6 +332,29 @@
         height: 600px;
         padding: 12px;
       }
+
+      .logo-about summary {
+        padding: 16px;
+      }
+
+      .logo-about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 17px;
+        padding: 22px 17px;
+      }
+
+      .logo-about-image {
+        width: 95px;
+        height: 95px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .update-button,
+      .logo-about summary {
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -232,22 +366,26 @@
   <!-- DISTRICT HEADER -->
 
   <header class="intro">
+
     <div class="eyebrow">
       Western Washington &bull; Area 72
     </div>
 
     <img
-  src="https://meetings.onlinedistrict25aa.org/D25Online%20Logo.jpeg"
-  alt="Online District 25 Logo"
-  style="width:100px;height:100px;object-fit:contain;border-radius:50%;display:block;margin:0 auto 12px;"
->
+      class="district-logo"
+      src="https://meetings.onlinedistrict25aa.org/D25Online%20Logo.jpeg"
+      alt="Online District 25 emblem featuring interconnected figures surrounding a globe"
+      width="90"
+      height="90"
+    >
 
-<h1>Online District 25</h1>
+    <h1>Online District 25</h1>
 
     <div class="timezone">
       &#128339; All meeting times are displayed
       in Seattle, WA (Pacific Time)
     </div>
+
   </header>
 
   <!-- MEETING UPDATE -->
@@ -288,10 +426,58 @@
 
   </section>
 
+  <!-- ABOUT OUR DISTRICT LOGO -->
+
+  <details class="logo-about">
+
+    <summary>
+      About Our District Logo
+    </summary>
+
+    <div class="logo-about-content">
+
+      <img
+        class="logo-about-image"
+        src="https://meetings.onlinedistrict25aa.org/D25Online%20Logo.jpeg"
+        alt="Online District 25 logo"
+        width="112"
+        height="112"
+        loading="lazy"
+      >
+
+      <div class="logo-about-text">
+
+        <h2>
+          Connected Through Service
+        </h2>
+
+        <p>
+          The interconnected figures represent A.A. groups
+          and trusted servants united through service.
+          Their circular arrangement reflects the
+          connection between groups, the district, and
+          the area, while the central globe symbolizes
+          the ability of online A.A. service to extend
+          beyond geographical boundaries.
+        </p>
+
+        <p>
+          Together, these elements express unity,
+          participation, and our shared responsibility
+          to carry the message.
+        </p>
+
+      </div>
+
+    </div>
+
+  </details>
+
   <!-- FOOTER -->
 
   <footer>
     Online District 25 &bull; Western Washington Area 72
+
     <p>
       <a
         href="https://www.onlinedistrict25aa.org"
@@ -304,10 +490,14 @@
 
 </main>
 
+<!-- TSML UI APPLICATION -->
+
 <script
   src="https://tsml-ui.code4recovery.org/app.js"
   async>
 </script>
+
+<!-- MEETING GUIDE HEADING CUSTOMIZATION -->
 
 <script>
   const guide = document.getElementById("tsml-ui");
