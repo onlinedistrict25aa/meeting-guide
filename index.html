@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,100 +6,101 @@
 
   <title>Find an Online Meeting | Online District 25</title>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css"
-  >
+  <!-- FAVICON (files sit next to this index.html) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- DISTRICT 25 FONTS (same as the Google Site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Open+Sans:wght@400;600&display=swap">
+
+  <link rel="stylesheet" href="https://unpkg.com/tsml-ui@1/dist/tsml-ui.css">
 
   <style>
+    /* District 25 style kit: red Oswald headings, Open Sans text, blue links, white page */
     :root {
-      --navy: #183b63;
-      --blue: #245b93;
-      --light: #edf4fc;
-      --text: #243244;
-      --muted: #526477;
-      --border: #dbe5ef;
+      --red: #e2453a;
+      --red-dark: #c53328;
+      --coral: #ea6a62;
+      --tint: #fdeceb;
+      --blue: #3346e8;
+      --blue-dark: #2333c4;
+      --ink: #212121;
+      --muted: #555555;
+      --line: #e6e8f0;
+      --panel: #f6f6f6;
+      --heading: 'Oswald', 'Arial Narrow', sans-serif;
+      --body: 'Open Sans', Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
 
-    html,
     body {
-      margin: 0;
-      padding: 0;
+      font-family: var(--body);
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.6;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: linear-gradient(
-        135deg,
-        #eaf2fd 0%,
-        #f9fbff 55%,
-        #eaf3ff 100%
-      );
-    }
+    a { color: var(--blue); }
+    a:hover { color: var(--red); }
 
     .page {
-      max-width: 1450px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 14px 16px 0;
+      padding: 16px 16px 0;
     }
 
     /* DISTRICT HEADER */
 
     .intro {
       text-align: center;
-      padding: 27px 16px 25px;
-      background: linear-gradient(
-        115deg,
-        #e4effe,
-        #ffffff 55%,
-        #e9f2ff
-      );
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      margin-bottom: 14px;
+      padding: 26px 16px 22px;
+      border-bottom: 4px solid var(--coral);
+      margin-bottom: 18px;
     }
 
     .eyebrow {
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
-    /* DISTRICT LOGO */
-
     .district-logo {
       display: block;
-      width: 90px;
-      height: 90px;
+      width: 92px;
+      height: 92px;
       object-fit: contain;
       border-radius: 50%;
-      margin: 25px auto 15px;
+      margin: 18px auto 12px;
     }
 
     .intro h1 {
-      color: var(--navy);
-      font-size: clamp(28px, 4vw, 40px);
-      margin: 0 0 17px;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
+      font-family: var(--heading);
+      font-weight: 500;
+      color: var(--ink);
+      font-size: clamp(30px, 4.4vw, 42px);
+      line-height: 1.15;
+      margin: 0 0 14px;
     }
 
     .timezone {
-      display: inline-block;
-      background: #dfeefa;
-      color: var(--navy);
-      border-radius: 30px;
-      padding: 9px 17px;
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tint);
+      color: #a3332b;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 14px;
       font-weight: 600;
-      line-height: 1.5;
     }
 
     /* MEETING UPDATE PANEL */
@@ -111,42 +111,44 @@
       justify-content: space-between;
       gap: 20px;
       padding: 18px 22px;
-      margin-bottom: 14px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #f2f7fd;
+      margin-bottom: 18px;
+      background: var(--panel);
+      border-left: 5px solid var(--red);
     }
 
     .update-copy h2 {
-      color: var(--navy);
-      font-size: 19px;
-      margin: 0 0 6px;
+      font-family: var(--heading);
+      font-weight: 500;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-size: 22px;
+      margin: 0 0 4px;
     }
 
     .update-copy p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 15px;
     }
 
     .update-button {
       display: inline-block;
       flex-shrink: 0;
-      padding: 12px 20px;
-      border-radius: 8px;
-      background: var(--navy);
+      padding: 11px 20px;
+      border-radius: 6px;
+      background: var(--red);
       color: #ffffff;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 15px;
       text-align: center;
       transition: background .2s ease;
     }
 
     .update-button:hover,
     .update-button:focus-visible {
-      background: #306aa5;
+      background: var(--red-dark);
       color: #ffffff;
     }
 
@@ -154,167 +156,64 @@
 
     .meetings-panel {
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 15px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--red);
       padding: 18px;
-      box-shadow: 0 6px 22px rgba(20, 55, 95, .05);
-
       height: 650px;
       overflow-y: auto;
       overflow-x: auto;
       overscroll-behavior: contain;
     }
 
+    /* TSML UI's own color and font settings (it only accepts 6-digit hex colors) */
     #tsml-ui {
       width: 100%;
+      --background: #ffffff;
+      --text: #212121;
+      --link: #3346e8;
+      --online: #3346e8;
+      --in-person: #1f7a46;
+      --inactive: #e2453a;
+      --alert-background: #fdeceb;
+      --alert-text: #a3332b;
+      --focus: #3346e840;
+      --border-radius: 6px;
+      --font-family: 'Open Sans', Arial, sans-serif;
+      --font-size: 16px;
     }
 
     #tsml-ui h1,
     #tsml-ui h2 {
-      color: var(--navy);
+      font-family: var(--heading);
+      font-weight: 500;
+      color: var(--red);
     }
 
-    #tsml-ui a {
-      color: #175fa7;
-    }
-
-    #tsml-ui input,
-    #tsml-ui select,
-    #tsml-ui button {
-      border-radius: 7px;
-    }
-
-    /* ABOUT OUR DISTRICT LOGO */
-
-    .logo-about {
-      margin-top: 14px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #ffffff;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(20, 55, 95, .035);
-    }
-
-    .logo-about summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 17px 21px;
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      list-style: none;
-      background: #f2f7fd;
-      transition: background .2s ease;
-    }
-
-    .logo-about summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .logo-about summary:hover {
-      background: #e7f1fc;
-    }
-
-    .logo-about summary:focus-visible {
-      outline: 3px solid #79a8dc;
-      outline-offset: -3px;
-    }
-
-    .logo-about summary::after {
-      content: "+";
-      font-size: 23px;
-      font-weight: 400;
-      line-height: 1;
-      color: var(--blue);
-    }
-
-    .logo-about[open] summary::after {
-      content: "−";
-    }
-
-    .logo-about-content {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      padding: 24px;
-    }
-
-    .logo-about-image {
-      width: 112px;
-      height: 112px;
-      object-fit: contain;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .logo-about-text h2 {
-      color: var(--navy);
-      font-size: 18px;
-      line-height: 1.4;
-      margin: 0 0 9px;
-    }
-
-    .logo-about-text p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      margin: 0 0 11px;
-    }
-
-    .logo-about-text p:last-child {
-      margin-bottom: 0;
+    #tsml-ui h1 {
+      text-transform: uppercase;
+      letter-spacing: .5px;
     }
 
     /* FOOTER */
 
     footer {
       text-align: center;
-      padding: 16px 8px 12px;
-      color: #62758a;
-      font-size: 12px;
-      line-height: 1.5;
+      padding: 18px 8px 16px;
+      margin-top: 22px;
+      border-top: 1px solid #eeeeee;
+      color: #666666;
+      font-size: 14px;
     }
 
-    footer p {
-      margin: 5px 0 0;
-    }
-
-    footer a {
-      color: var(--blue);
-    }
+    footer p { margin: 6px 0 0; }
 
     /* MOBILE */
 
     @media (max-width: 700px) {
-      .page {
-        padding: 10px 10px 0;
-      }
-
-      .intro {
-        padding: 23px 12px;
-      }
-
-      .eyebrow {
-        font-size: 11px;
-        letter-spacing: 1.2px;
-      }
-
-      .district-logo {
-        width: 82px;
-        height: 82px;
-        margin: 23px auto 14px;
-      }
-
-      .intro h1 {
-        font-size: 29px;
-      }
-
-      .timezone {
-        font-size: 12px;
-      }
+      .page { padding: 10px 10px 0; }
+      .intro { padding: 20px 10px 18px; }
+      .district-logo { width: 80px; height: 80px; }
+      .timezone { font-size: 13px; }
 
       .update-panel {
         flex-direction: column;
@@ -324,37 +223,13 @@
         gap: 14px;
       }
 
-      .update-button {
-        width: 100%;
-      }
+      .update-button { width: 100%; }
 
-      .meetings-panel {
-        height: 600px;
-        padding: 12px;
-      }
-
-      .logo-about summary {
-        padding: 16px;
-      }
-
-      .logo-about-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 17px;
-        padding: 22px 17px;
-      }
-
-      .logo-about-image {
-        width: 95px;
-        height: 95px;
-      }
+      .meetings-panel { height: 600px; padding: 12px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .update-button,
-      .logo-about summary {
-        transition: none;
-      }
+      .update-button { transition: none; }
     }
   </style>
 </head>
@@ -367,23 +242,21 @@
 
   <header class="intro">
 
-    <div class="eyebrow">
-      Western Washington &bull; Area 72
-    </div>
+    <div class="eyebrow">Western Washington &bull; Area 72</div>
 
     <img
       class="district-logo"
-      src="https://meetings.onlinedistrict25aa.org/D25Online%20Logo.jpeg"
+      src="logo-red.png"
       alt="Online District 25 emblem featuring interconnected figures surrounding a globe"
-      width="90"
-      height="90"
+      width="92"
+      height="92"
     >
 
     <h1>Online District 25</h1>
 
     <div class="timezone">
-      &#128339; All meeting times are displayed
-      in Seattle, WA (Pacific Time)
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      All meeting times are shown in Pacific Time (Seattle, WA)
     </div>
 
   </header>
@@ -394,10 +267,7 @@
 
     <div class="update-copy">
       <h2>Need to Update a Meeting?</h2>
-      <p>
-        Add a meeting or report a change to an existing
-        listing. Help keep our meeting guide accurate.
-      </p>
+      <p>Add a meeting or report a change to an existing listing. Help keep our meeting guide accurate.</p>
     </div>
 
     <a
@@ -426,63 +296,13 @@
 
   </section>
 
-  <!-- ABOUT OUR DISTRICT LOGO -->
-
-  <details class="logo-about">
-
-    <summary>
-      About Our District Logo
-    </summary>
-
-    <div class="logo-about-content">
-
-      <img
-        class="logo-about-image"
-        src="https://meetings.onlinedistrict25aa.org/D25Online%20Logo.jpeg"
-        alt="Online District 25 logo"
-        width="112"
-        height="112"
-        loading="lazy"
-      >
-
-      <div class="logo-about-text">
-
-        <h2>
-          Connected Through Service
-        </h2>
-
-        <p>
-          The interconnected figures represent A.A. groups
-          and trusted servants united through service.
-          Their circular arrangement reflects the
-          connection between groups, the district, and
-          the area, while the central globe symbolizes
-          the ability of online A.A. service to extend
-          beyond geographical boundaries.
-        </p>
-
-        <p>
-          Together, these elements express unity,
-          participation, and our shared responsibility
-          to carry the message.
-        </p>
-
-      </div>
-
-    </div>
-
-  </details>
 
   <!-- FOOTER -->
 
   <footer>
     Online District 25 &bull; Western Washington Area 72
-
     <p>
-      <a
-        href="https://www.onlinedistrict25aa.org"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://www.onlinedistrict25aa.org" target="_blank" rel="noopener noreferrer">
         Return to the District 25 Website
       </a>
     </p>
@@ -492,10 +312,7 @@
 
 <!-- TSML UI APPLICATION -->
 
-<script
-  src="https://tsml-ui.code4recovery.org/app.js"
-  async>
-</script>
+<script src="https://tsml-ui.code4recovery.org/app.js" async></script>
 
 <!-- MEETING GUIDE HEADING CUSTOMIZATION -->
 
@@ -505,7 +322,6 @@
   function updateMeetingHeading() {
     guide.querySelectorAll("h1, h2").forEach(heading => {
       const text = heading.textContent.trim();
-
       if (text === "Meetings" || text === "Online Meetings") {
         heading.textContent = "Find an Online Meeting";
       }
@@ -513,12 +329,7 @@
   }
 
   const observer = new MutationObserver(updateMeetingHeading);
-
-  observer.observe(guide, {
-    childList: true,
-    subtree: true
-  });
-
+  observer.observe(guide, { childList: true, subtree: true });
   updateMeetingHeading();
 </script>
 
